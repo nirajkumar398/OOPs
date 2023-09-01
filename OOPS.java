@@ -15,11 +15,6 @@ class Student {
     String name;
     int age;
 
-    public void print() {
-        System.out.println(this.name);
-        System.out.println(this.age);
-    }
-
     Student() {
         System.out.println("non parameterize constructor is called");
     }
@@ -33,6 +28,29 @@ class Student {
     Student(Student s2) {
         this.name = s2.name;
         this.age = s2.age;
+    }
+
+    public void print() {
+        System.out.println(this.name);
+        System.out.println(this.age);
+    }
+
+    // polymorphism
+    // 1. compile type polymorphism
+    // 2. run type polymorphism
+
+    // 1. example of compile type polymorphism
+    // same fun name diff functionality
+    public void printInfo(String name) {
+        System.out.println(name);
+    }
+
+    public void printInfo(int age) {
+        System.out.println(age);
+    }
+
+    public void printInfo(String name, int age) {
+        System.out.println(name + " " + age);
     }
 }
 
@@ -52,8 +70,12 @@ public class OOPS {
         Student s1 = new Student("Niraj", 24);
         Student s2 = new Student(s1);
         s2.print();
-        System.out.println(s1);
-        System.out.println(s2);
+        // System.out.println(s1);
+        // System.out.println(s2);
+
+        s1.printInfo(s1.name);
+        s1.printInfo(s1.age);
+        s1.printInfo(s1.name, s1.age);
 
     }
 }
